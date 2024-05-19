@@ -23,7 +23,7 @@ export default function ResumeComponent(props) {
           <div className="details">
             <ul>
               {item.details.map((detail, index) => (
-                <li key={index}>{detail}</li>
+                <li key={detail.id}>{detail.content}</li>
               ))}
             </ul>
           </div>

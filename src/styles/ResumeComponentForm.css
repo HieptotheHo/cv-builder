@@ -1,0 +1,34 @@
+.component > form > div {
+  display: block;
+  border: 1px black dashed;
+  padding: 1em;
+  border-radius: 16px;
+}
+
+.component > form > div:last-child {
+  border: none;
+  display: flex;
+  justify-self: center;
+}
+
+.component > form > div:last-child > button {
+  margin: 0 auto;
+  padding: 0.2em 1.5em;
+}
+
+.component > form > div > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.component > form > div > div + div {
+  margin-top: 1em;
+}
+
+.delete-detail {
+  aspect-ratio: 1 / 1;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 25px;
+  margin-right: 10px;
+}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import "./App.css";
+import ResumeComponentForm from "./components/editors/ResumeComponentForm";
 import ResumeComponent from "./components/resume-components/ResumeComponent";
 import PersonalInfo from "./components/resume-components/PersonalInfo";
 import {
@@ -21,7 +22,21 @@ function App() {
     <>
       <div className="editor">
         <h1>Build Your Own Resume</h1>
-        <PersonalInfoForm changeInfo={setPersonalInfos}></PersonalInfoForm>
+        <PersonalInfoForm
+          changeInfo={setPersonalInfos}
+          info={personalInfos}
+        ></PersonalInfoForm>
+        <ResumeComponentForm
+          changeInfo={setEducation}
+          component="Education"
+          data={education}
+        ></ResumeComponentForm>
+
+        <ResumeComponentForm
+          changeInfo={setExperience}
+          component="Experience"
+          data={experience}
+        ></ResumeComponentForm>
       </div>
 
       <div className="resume-container">

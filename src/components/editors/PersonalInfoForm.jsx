@@ -3,7 +3,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
-function ExtraContact({ name, index, changeInfo, changeExtraContacts }) {
+function ExtraContact({ contact, index, changeInfo, changeExtraContacts }) {
   //Type in extra Contacts
   function handleChangeExtraContact(e, index) {
     changeInfo((prevState) => {
@@ -42,11 +42,12 @@ function ExtraContact({ name, index, changeInfo, changeExtraContacts }) {
             handleDeleteExtraContact(e, index);
           }}
         >
-          <FontAwesomeIcon icon={faX} key={name + "-X"} />
+          <FontAwesomeIcon icon={faX} key={contact.id + "-X"} />
         </button>
-        <label htmlFor={name}>New Contact {index + 1}</label>
+        <label htmlFor={contact.id}>New Contact {index + 1}</label>
       </div>
       <input
+        value={contact.detail}
         type="text"
         id={name}
         name={name}
@@ -58,7 +59,7 @@ function ExtraContact({ name, index, changeInfo, changeExtraContacts }) {
   );
 }
 
-export default function PersonalInfoForm({ changeInfo }) {
+export default function PersonalInfoForm({ changeInfo, info }) {
   //Update name, email, phone, place
   function handleChangePersonalInfo(e, field) {
     changeInfo((prevState) => ({
@@ -67,8 +68,7 @@ export default function PersonalInfoForm({ changeInfo }) {
     }));
   }
   //state keeping track of additional contacts in form
-  const [extraContacts, setExtraContacts] = useState([]);
-
+  const [extraContacts, setExtraContacts] = useState(info.others);
   function handleAddExtraContacts(index) {
     //adding new input for extra contact
     let newContactInput = {
@@ -91,6 +91,7 @@ export default function PersonalInfoForm({ changeInfo }) {
         <div key="first-name">
           <label htmlFor="first-name">First name</label>
           <input
+            value={info.firstName}
             type="text"
             id="first-name"
             name="firstName"
@@ -100,6 +101,7 @@ export default function PersonalInfoForm({ changeInfo }) {
         <div key="last-name">
           <label htmlFor="last-name">Last name</label>
           <input
+            value={info.lastName}
             type="text"
             id="last-name"
             name="lastName"
@@ -109,6 +111,7 @@ export default function PersonalInfoForm({ changeInfo }) {
         <div key="email">
           <label htmlFor="email">Email</label>
           <input
+            value={info.email}
             type="email"
             id="email"
             name="email"
@@ -118,7 +121,8 @@ export default function PersonalInfoForm({ changeInfo }) {
         <div key="phone">
           <label htmlFor="phone">Phone</label>
           <input
-            type="number"
+            value={info.phone}
+            type="text"
             id="phone"
             name="phone"
             onChange={(e) => handleChangePersonalInfo(e, "phone")}
@@ -127,6 +131,7 @@ export default function PersonalInfoForm({ changeInfo }) {
         <div key="place">
           <label htmlFor="place">Place</label>
           <input
+            value={info.place}
             type="text"
             id="place"
             name="place"
@@ -136,7 +141,7 @@ export default function PersonalInfoForm({ changeInfo }) {
         {extraContacts.map((contact, index) => (
           <ExtraContact
             key={contact.id}
-            name={contact.id}
+            contact={contact}
             index={index}
             changeInfo={changeInfo}
             changeExtraContacts={setExtraContacts}
