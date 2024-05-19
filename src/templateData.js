@@ -35,9 +35,9 @@ const templatePersonalInfo = {
   phone: "555 555 555",
   place: "Ho Chi Minh, Vietnam",
   others: [
-    { id: 1, detail: "github" },
-    { id: 2, detail: "instagram" },
-    { id: 3, detail: "facebook" },
+    // { id: 1, detail: "github" },
+    // { id: 2, detail: "instagram" },
+    // { id: 3, detail: "facebook" },
   ],
 };
 

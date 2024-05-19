@@ -15,11 +15,14 @@ export default function PersonalInfo({ personalInfo }) {
       </div>
       <div className="others">
         <ul>
+          {console.log(personalInfo.others)}
           {personalInfo.others.map((info, index) => {
             return (
               <>
                 <li key={info.id}>{info.detail}</li>
-                {index < personalInfo.others.length - 1 && <li> • </li>}
+                {index < personalInfo.others.length - 1 && (
+                  <li key={info.id + "-dot"}> • </li>
+                )}
               </>
             );
           })}

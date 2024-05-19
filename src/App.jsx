@@ -8,6 +8,7 @@ import {
   templateExperience,
   templatePersonalInfo,
 } from "./templateData";
+import PersonalInfoForm from "./components/editors/PersonalInfoForm";
 function App() {
   //SAMPLE DATA
   const [personalInfos, setPersonalInfos] = useState(templatePersonalInfo);
@@ -20,7 +21,9 @@ function App() {
     <>
       <div className="editor">
         <h1>Build Your Own Resume</h1>
+        <PersonalInfoForm changeInfo={setPersonalInfos}></PersonalInfoForm>
       </div>
+
       <div className="resume-container">
         <div className="resume">
           {/* Personal Information */}
