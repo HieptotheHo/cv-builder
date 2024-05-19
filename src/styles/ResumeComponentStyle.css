@@ -1,0 +1,17 @@
+/* School name and duration */
+h3 {
+  font-size: 1.5em;
+}
+
+.component-item > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.component-item > .details {
+  margin-left: 1em;
+}
+
+.component {
+  margin-top: 2em;
+}

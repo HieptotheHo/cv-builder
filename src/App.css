@@ -1,42 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  display: flex;
+}
+.editor {
+  padding: 2em;
+  width: 30%;
+}
+
+.editor > h1 {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
+.resume-container {
+  flex: 1;
+  /* background-color: aquamarine; */
   padding: 2em;
+  border-left: 1px solid black;
 }
 
-.read-the-docs {
-  color: #888;
+.resume {
+  background-color: rgb(240, 240, 240);
+  padding: 2.5em 1em;
+  width: 794px;
+  margin: 0 auto;
+  font-size: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: 1123px;
+}
+
+.contacts > ul {
+  list-style-type: none;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.others > ul {
+  list-style-type: none;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.name {
+  text-align: center;
+  font-size: 2.5em;
+  /* padding: 0.5em; */
 }
