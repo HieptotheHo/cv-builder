@@ -7,6 +7,7 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import ExpansionButton from "../ExpansionButton";
 function ExtraContact({ contact, index, changeInfo, changeExtraContacts }) {
   //Type in extra Contacts
+  console.log(contact);
   function handleChangeExtraContact(e, index) {
     changeInfo((prevState) => {
       let temp = { ...prevState };
@@ -61,6 +62,7 @@ function ExtraContact({ contact, index, changeInfo, changeExtraContacts }) {
 }
 
 export default function PersonalInfoForm({ changeInfo, info }) {
+  const [expanded, setExpanded] = useState(false);
   //Update name, email, phone, place
   function handleChangePersonalInfo(e, field) {
     changeInfo((prevState) => ({
@@ -84,84 +86,100 @@ export default function PersonalInfoForm({ changeInfo, info }) {
       others: [...prevState.others, newContactDisplay],
     }));
   }
-
+  // setExtraContacts(info.others);
   return (
     <div className="personal container">
       <div className="header">
         <h1>Personal Information</h1>
-        <ExpansionButton></ExpansionButton>
+        <ExpansionButton
+          setExpanded={setExpanded}
+          expanded={expanded}
+          component="personal"
+        ></ExpansionButton>
       </div>
-      <form>
-        <div key="first-name">
-          <label htmlFor="first-name">First name</label>
-          <input
-            value={info.firstName}
-            type="text"
-            id="first-name"
-            name="firstName"
-            onChange={(e) => handleChangePersonalInfo(e, "firstName")}
-          />
-        </div>
-        <div key="last-name">
-          <label htmlFor="last-name">Last name</label>
-          <input
-            value={info.lastName}
-            type="text"
-            id="last-name"
-            name="lastName"
-            onChange={(e) => handleChangePersonalInfo(e, "lastName")}
-          />
-        </div>
-        <div key="email">
-          <label htmlFor="email">Email</label>
-          <input
-            value={info.email}
-            type="email"
-            id="email"
-            name="email"
-            onChange={(e) => handleChangePersonalInfo(e, "email")}
-          />
-        </div>
-        <div key="phone">
-          <label htmlFor="phone">Phone</label>
-          <input
-            value={info.phone}
-            type="text"
-            id="phone"
-            name="phone"
-            onChange={(e) => handleChangePersonalInfo(e, "phone")}
-          />
-        </div>
-        <div key="place">
-          <label htmlFor="place">Place</label>
-          <input
-            value={info.place}
-            type="text"
-            id="place"
-            name="place"
-            onChange={(e) => handleChangePersonalInfo(e, "place")}
-          />
-        </div>
-        {extraContacts.map((contact, index) => (
-          <ExtraContact
-            key={contact.id}
-            contact={contact}
-            index={index}
-            changeInfo={changeInfo}
-            changeExtraContacts={setExtraContacts}
-          ></ExtraContact>
-        ))}
-      </form>
+      <main className={"personal main"}>
+        {expanded && (
+          <div>
+            <form>
+              <div key="first-name">
+                <label htmlFor="first-name">First name</label>
+                <input
+                  value={info.firstName}
+                  type="text"
+                  id="first-name"
+                  name="firstName"
+                  onChange={(e) => handleChangePersonalInfo(e, "firstName")}
+                />
+              </div>
+              <div key="last-name">
+                <label htmlFor="last-name">Last name</label>
+                <input
+                  value={info.lastName}
+                  type="text"
+                  id="last-name"
+                  name="lastName"
+                  onChange={(e) => handleChangePersonalInfo(e, "lastName")}
+                />
+              </div>
+              <div key="email">
+                <label htmlFor="email">Email</label>
+                <input
+                  value={info.email}
+                  type="email"
+                  id="email"
+                  name="email"
+                  onChange={(e) => handleChangePersonalInfo(e, "email")}
+                />
+              </div>
+              <div key="phone">
+                <label htmlFor="phone">Phone</label>
+                <input
+                  value={info.phone}
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  onChange={(e) => handleChangePersonalInfo(e, "phone")}
+                />
+              </div>
+              <div key="place">
+                <label htmlFor="place">Place</label>
+                <input
+                  value={info.place}
+                  type="text"
+                  id="place"
+                  name="place"
+                  onChange={(e) => handleChangePersonalInfo(e, "place")}
+                />
+              </div>
 
-      <div className="button-container">
-        <button
-          onClick={(e) => {
-            handleAddExtraContacts(extraContacts ? extraContacts.length : 0);
-          }}
-        >
-          Add Contact
-        </button>
-      </div>
+              {info.others &&
+                info.others.map((contact, index) => {
+                  return (
+                    <ExtraContact
+                      key={contact.id}
+                      contact={contact}
+                      index={index}
+                      changeInfo={changeInfo}
+                      changeExtraContacts={setExtraContacts}
+                    ></ExtraContact>
+                  );
+                })}
+            </form>
+
+            <div className="button-container">
+              <button
+                onClick={(e) => {
+                  handleAddExtraContacts(
+                    extraContacts ? extraContacts.length : 0
+                  );
+                }}
+              >
+                Add Contact
+              </button>
+            </div>
+          </div>
+        )}
+      </main>
     </div>
   );
 }
