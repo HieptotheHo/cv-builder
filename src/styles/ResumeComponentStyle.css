@@ -12,6 +12,10 @@ h3 {
   margin-left: 1em;
 }
 
+.component-item + .component-item {
+  margin-top: 1em;
+}
+
 .component {
   margin-top: 2em;
 }

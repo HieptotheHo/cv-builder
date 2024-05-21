@@ -1,27 +1,38 @@
-.component > form > div {
+.component > .main > form > div {
   display: block;
   border: 1px black dashed;
   padding: 1em;
   border-radius: 16px;
 }
 
-.component > form > div:last-child {
+.main > form > div:last-child {
   border: none;
   display: flex;
   justify-self: center;
 }
 
-.component > form > div:last-child > button {
+.component > .main > form > div:last-child > button {
   margin: 0 auto;
   padding: 0.2em 1.5em;
 }
 
-.component > form > div > div {
+.component > .main > form > div:last-child > button {
+  background: white;
+  color: black;
+  border: 1px solid black;
+}
+.component > .main > form > div:last-child > button:hover {
+  background-color: black;
+  color: white;
+  transition: background-color 0.3s ease-out 0s;
+}
+
+.component > .main > form > div > div {
   display: flex;
   justify-content: space-between;
 }
 
-.component > form > div > div + div {
+.component > .main > form > div > div {
   margin-top: 1em;
 }
 
@@ -31,4 +42,34 @@
   border-radius: 50%;
   width: 25px;
   margin-right: 10px;
+  background-color: white;
+  transition: background-color 0.3s ease-out 0s;
+}
+
+.delete-detail:hover {
+  background-color: black;
+  color: white;
+}
+
+.add-detail {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+}
+
+.add-detail > button {
+  padding: 0.2em 1.5em;
+  background-color: white;
+  border: 1px solid black;
+  transition: background-color 0.3s ease-out 0s;
+}
+
+.add-detail > button:hover {
+  background-color: black;
+  color: white;
+}
+
+.close-subcomponent {
+  display: flex;
+  justify-content: right;
 }

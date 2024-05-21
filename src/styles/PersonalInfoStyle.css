@@ -1,0 +1,11 @@
+.button-container > button {
+  padding: 0.2em 1.2em;
+  background-color: white;
+  border: 1px solid black;
+  transition: background-color 0.3s ease-out 0s;
+}
+
+.button-container > button:hover {
+  background-color: black;
+  color: white;
+}

@@ -32,4 +32,11 @@ form > div {
   border: 1px solid black;
   border-radius: 50%;
   width: 25px;
+  background-color: white;
+  transition: background-color 0.3s ease-out 0s;
+}
+
+.extra-contact > div > button:hover {
+  background-color: black;
+  color: white;
 }

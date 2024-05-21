@@ -1,8 +1,10 @@
 import "../../styles/PersonalInfoForm.css";
+import "../../styles/PersonalInfoStyle.css";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+import ExpansionButton from "../ExpansionButton";
 function ExtraContact({ contact, index, changeInfo, changeExtraContacts }) {
   //Type in extra Contacts
   function handleChangeExtraContact(e, index) {
@@ -17,7 +19,6 @@ function ExtraContact({ contact, index, changeInfo, changeExtraContacts }) {
   }
 
   function handleDeleteExtraContact(e, index) {
-    console.log("hi");
     //DELETE one element in others of the state
     changeInfo((prevState) => {
       let temp = prevState.others.filter((contact, i) => i !== index);
@@ -86,7 +87,10 @@ export default function PersonalInfoForm({ changeInfo, info }) {
 
   return (
     <div className="personal container">
-      <h1>Personal Information</h1>
+      <div className="header">
+        <h1>Personal Information</h1>
+        <ExpansionButton></ExpansionButton>
+      </div>
       <form>
         <div key="first-name">
           <label htmlFor="first-name">First name</label>

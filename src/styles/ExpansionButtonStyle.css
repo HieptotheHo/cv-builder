@@ -1,0 +1,16 @@
+.expanding {
+  animation-name: expansion;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  transform-origin: top;
+}
+@keyframes expansion {
+  0% {
+    transform: scaleY(0);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}

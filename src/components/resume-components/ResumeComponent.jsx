@@ -1,5 +1,6 @@
 import "../../styles/ResumeComponentStyle.css";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 export default function ResumeComponent(props) {
   return (
     <div className="component">
@@ -22,9 +23,10 @@ export default function ResumeComponent(props) {
           </div>
           <div className="details">
             <ul>
-              {item.details.map((detail, index) => (
-                <li key={detail.id}>{detail.content}</li>
-              ))}
+              {item.details &&
+                item.details.map((detail, index) => (
+                  <li key={detail.id}>{detail.content}</li>
+                ))}
             </ul>
           </div>
         </div>

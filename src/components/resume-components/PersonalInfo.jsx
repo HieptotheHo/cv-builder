@@ -15,7 +15,6 @@ export default function PersonalInfo({ personalInfo }) {
       </div>
       <div className="others">
         <ul>
-          {console.log(personalInfo.others)}
           {personalInfo.others.map((info, index) => {
             return (
               <>
